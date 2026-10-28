@@ -22,9 +22,17 @@ export default function AdoptSection() {
   return (
     <Section id="adopt" bg="gray">
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-        <SectionHeading eyebrow={data?.heading.eyebrow} title={data?.heading.title ?? " "} subtitle={data?.heading.subtitle} />
+        <SectionHeading
+          eyebrow={data?.heading.eyebrow}
+          title={data?.heading.title ?? " "}
+          subtitle={data?.heading.subtitle}
+        />
         {data?.filters ? (
-          <div className="flex flex-wrap gap-2" role="group" aria-label={data.filterGroupLabel}>
+          <div
+            className="flex flex-wrap gap-2"
+            role="group"
+            aria-label={data.filterGroupLabel}
+          >
             {data.filters.map((item) => (
               <button
                 type="button"
@@ -40,16 +48,32 @@ export default function AdoptSection() {
         ) : null}
       </div>
       {isLoading ? (
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{Array.from({ length: 6 }, (_, i) => <Skeleton key={i} className="h-[380px]" />)}</div>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }, (_, i) => (
+            <Skeleton key={i} className="h-[380px]" />
+          ))}
+        </div>
       ) : isError ? (
-        <p role="status" className="mt-8 text-sm text-brand">{data?.error ?? "Adoption profiles could not be loaded right now."}</p>
+        <p role="status" className="mt-8 text-sm text-brand">
+          {data?.error ?? "Adoption profiles could not be loaded right now."}
+        </p>
       ) : pets.length ? (
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {pets.map((pet) => (
-            <Card key={pet.name} variant="pet" image={pet.image} imageAlt={pet.imageAlt} title={pet.name} description={pet.note} meta={pet.type}>
+            <Card
+              key={pet.name}
+              variant="pet"
+              image={pet.image}
+              imageAlt={pet.imageAlt}
+              title={pet.name}
+              description={pet.note}
+              meta={pet.type}
+            >
               <div className="mt-3 flex items-center justify-between">
                 <Badge>{pet.age}</Badge>
-                <Button asLink to="/adopt" variant="outline" size="sm">{data.adoptAction ?? "Adopt Me"}</Button>
+                <Button asLink to="/adopt" variant="outline" size="sm">
+                  {data.adoptAction ?? "Adopt Me"}
+                </Button>
               </div>
             </Card>
           ))}
