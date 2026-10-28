@@ -17,14 +17,24 @@ export default function Navbar() {
     <>
       <header className="sticky top-0 z-50 bg-brand text-white">
         <div className="relative mx-auto flex h-[76px] max-w-content items-center justify-between px-5 sm:px-8 lg:px-12">
-          <Link to="/" aria-label={data?.nav?.brandLabel ?? "CareRise home"} className="inline-flex items-center gap-2 font-display text-2xl font-bold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+          <Link
+            to="/"
+            aria-label={data?.nav?.brandLabel ?? "CareRise home"}
+            className="inline-flex items-center gap-2 font-display text-2xl font-bold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
             <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-white/25">
               <Icon name="leaf" className="h-5 w-5" />
-              <Icon name="paw" className="absolute -bottom-1 -right-1 h-3.5 w-3.5 rounded-full bg-brand" />
+              <Icon
+                name="paw"
+                className="absolute -bottom-1 -right-1 h-3.5 w-3.5 rounded-full bg-brand"
+              />
             </span>
             CareRise
           </Link>
-          <nav aria-label="Main navigation" className="hidden items-center gap-5 xl:flex">
+          <nav
+            aria-label="Main navigation"
+            className="hidden items-center gap-5 xl:flex"
+          >
             {links.map((link) => (
               <Link
                 key={`${link.label}-${link.to}`}
@@ -36,7 +46,11 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="flex items-center gap-3">
-            <Button size="sm" onClick={openDonateModal} className="hidden sm:inline-flex">
+            <Button
+              size="sm"
+              onClick={openDonateModal}
+              className="hidden sm:inline-flex"
+            >
               {data?.nav?.donateLabel}
             </Button>
             <button
@@ -46,13 +60,31 @@ export default function Navbar() {
               aria-label={data?.nav?.menuLabel}
               aria-expanded={useUIStore((state) => state.isMobileMenuOpen)}
             >
-              <Icon name={useUIStore((state) => state.isMobileMenuOpen) ? "close" : "menu"} />
+              <Icon
+                name={
+                  useUIStore((state) => state.isMobileMenuOpen)
+                    ? "close"
+                    : "menu"
+                }
+              />
             </button>
           </div>
-          <MobileMenu links={links} onDonate={openDonateModal} donateLabel={data?.nav?.donateLabel} />
+          <MobileMenu
+            links={links}
+            onDonate={openDonateModal}
+            donateLabel={data?.nav?.donateLabel}
+          />
         </div>
-        {isLoading ? <span className="sr-only" role="status">Loading navigation</span> : null}
-        {isError ? <span className="sr-only" role="status">Navigation could not be loaded</span> : null}
+        {isLoading ? (
+          <span className="sr-only" role="status">
+            Loading navigation
+          </span>
+        ) : null}
+        {isError ? (
+          <span className="sr-only" role="status">
+            Navigation could not be loaded
+          </span>
+        ) : null}
       </header>
       <DonateModal />
     </>

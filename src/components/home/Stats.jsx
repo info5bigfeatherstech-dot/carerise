@@ -24,7 +24,12 @@ function AnimatedValue({ value, suffix }) {
     return () => cancelAnimationFrame(frame);
   }, [inView, value]);
 
-  return <span ref={ref}>{count.toLocaleString("en-IN")}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {count.toLocaleString("en-IN")}
+      {suffix}
+    </span>
+  );
 }
 
 /** Reveals impact totals with a restrained count-up when the section enters view. */
@@ -34,20 +39,40 @@ export default function Stats() {
   return (
     <Section bg="white">
       <div className="text-center">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">{data?.heading.eyebrow}</p>
-        <h2 className="font-display text-3xl font-medium text-brand sm:text-4xl">{data?.heading.title}</h2>
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+          {data?.heading.eyebrow}
+        </p>
+        <h2 className="font-display text-3xl font-medium text-brand sm:text-4xl">
+          {data?.heading.title}
+        </h2>
       </div>
       {isLoading ? (
-        <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">{Array.from({ length: 4 }, (_, i) => <Skeleton key={i} className="h-32" rounded="rounded-xl" />)}</div>
+        <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-4">
+          {Array.from({ length: 4 }, (_, i) => (
+            <Skeleton key={i} className="h-32" rounded="rounded-xl" />
+          ))}
+        </div>
       ) : isError ? (
-        <p role="status" className="mt-8 text-center text-sm text-brand">{data?.error ?? "Impact totals are temporarily unavailable."}</p>
+        <p role="status" className="mt-8 text-center text-sm text-brand">
+          {data?.error ?? "Impact totals are temporarily unavailable."}
+        </p>
       ) : !stats.length ? (
         <p className="mt-8 text-center text-sm text-brand/70">{data?.empty}</p>
       ) : (
         <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-7 lg:grid-cols-4">
           {stats.map((stat, index) => (
-            <div key={stat.label} className={index > 0 ? "border-brand/15 lg:border-l" : ""}>
-              <Card variant="stat" icon={stat.icon} value={<AnimatedValue value={stat.value} suffix={stat.suffix} />} title={stat.label} />
+            <div
+              key={stat.label}
+              className={index > 0 ? "border-brand/15 lg:border-l" : ""}
+            >
+              <Card
+                variant="stat"
+                icon={stat.icon}
+                value={
+                  <AnimatedValue value={stat.value} suffix={stat.suffix} />
+                }
+                title={stat.label}
+              />
             </div>
           ))}
         </div>

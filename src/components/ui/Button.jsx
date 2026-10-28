@@ -33,25 +33,40 @@ export default function Button({
   const content = (
     <>
       {loading ? (
-        <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-r-transparent" aria-label="Loading" />
+        <span
+          className="h-4 w-4 animate-spin rounded-full border-2 border-current border-r-transparent"
+          aria-label="Loading"
+        />
       ) : icon && iconPosition === "left" ? (
         <Icon name={icon} className="h-4 w-4" />
       ) : null}
       {children}
-      {!loading && icon && iconPosition === "right" ? <Icon name={icon} className="h-4 w-4" /> : null}
+      {!loading && icon && iconPosition === "right" ? (
+        <Icon name={icon} className="h-4 w-4" />
+      ) : null}
     </>
   );
 
   if (asLink && to) {
     return (
-      <Link to={to} className={classes} aria-disabled={disabled || loading} {...props}>
+      <Link
+        to={to}
+        className={classes}
+        aria-disabled={disabled || loading}
+        {...props}
+      >
         {content}
       </Link>
     );
   }
 
   return (
-    <button className={classes} type={type} disabled={disabled || loading} {...props}>
+    <button
+      className={classes}
+      type={type}
+      disabled={disabled || loading}
+      {...props}
+    >
       {content}
     </button>
   );

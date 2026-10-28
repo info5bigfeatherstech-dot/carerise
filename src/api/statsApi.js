@@ -3,7 +3,10 @@ import { delay } from "./mockApi";
 export async function getImpactStats() {
   await delay();
   return {
-    heading: { eyebrow: "Small acts, lasting impact", title: "Together, we’re making room for life." },
+    heading: {
+      eyebrow: "Small acts, lasting impact",
+      title: "Together, we’re making room for life.",
+    },
     error: "Impact totals are temporarily unavailable.",
     empty: "Impact totals will be shared soon.",
     items: [

@@ -60,5 +60,12 @@ const icons = {
 export default function Icon({ name, className = "h-5 w-5", ...props }) {
   const IconComponent = icons[name];
   if (!IconComponent) return null;
-  return <IconComponent aria-hidden="true" className={className} strokeWidth={1.8} {...props} />;
+  return (
+    <IconComponent
+      aria-hidden="true"
+      className={className}
+      strokeWidth={1.8}
+      {...props}
+    />
+  );
 }

@@ -12,7 +12,14 @@ export default function Input({
   const helpId = `${id}-help`;
   return (
     <div className={className}>
-      {label ? <label htmlFor={id} className={`mb-2 block text-sm font-medium ${labelClassName}`}>{label}</label> : null}
+      {label ? (
+        <label
+          htmlFor={id}
+          className={`mb-2 block text-sm font-medium ${labelClassName}`}
+        >
+          {label}
+        </label>
+      ) : null}
       <input
         id={id}
         aria-invalid={Boolean(error)}
@@ -21,7 +28,10 @@ export default function Input({
         {...props}
       />
       {error || hint ? (
-        <p id={helpId} className={`mt-2 text-xs ${error ? "text-accent" : "text-white/75"}`}>
+        <p
+          id={helpId}
+          className={`mt-2 text-xs ${error ? "text-accent" : "text-white/75"}`}
+        >
           {error || hint}
         </p>
       ) : null}

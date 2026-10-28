@@ -2,7 +2,8 @@
 
 @font-face {
   font-family: "Neue Montreal";
-  src: url("/fonts/NeueMontreal-Regular/NeueMontreal-Regular.woff2") format("woff2");
+  src: url("/fonts/NeueMontreal-Regular/NeueMontreal-Regular.woff2")
+    format("woff2");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -10,7 +11,8 @@
 
 @font-face {
   font-family: "Neue Montreal";
-  src: url("/fonts/NeueMontreal-Medium/NeueMontreal-Medium.woff2") format("woff2");
+  src: url("/fonts/NeueMontreal-Medium/NeueMontreal-Medium.woff2")
+    format("woff2");
   font-style: normal;
   font-weight: 500;
   font-display: swap;

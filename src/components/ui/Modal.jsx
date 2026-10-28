@@ -3,7 +3,13 @@ import { createPortal } from "react-dom";
 import Icon from "./Icon";
 
 /** Accessible modal dialog with Escape and backdrop dismissal. */
-export default function Modal({ open, onClose, title, children, labelledBy = "dialog-title" }) {
+export default function Modal({
+  open,
+  onClose,
+  title,
+  children,
+  labelledBy = "dialog-title",
+}) {
   const closeRef = useRef(null);
   const dialogRef = useRef(null);
 
@@ -62,7 +68,12 @@ export default function Modal({ open, onClose, title, children, labelledBy = "di
         >
           <Icon name="close" />
         </button>
-        <h2 id={labelledBy} className="pr-10 font-display text-3xl font-medium text-brand">{title}</h2>
+        <h2
+          id={labelledBy}
+          className="pr-10 font-display text-3xl font-medium text-brand"
+        >
+          {title}
+        </h2>
         <div className="mt-4">{children}</div>
       </div>
     </div>,

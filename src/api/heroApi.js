@@ -29,7 +29,11 @@ const homeContent = {
       "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=700&q=85",
     insetImageAlt: "A volunteer planting a young sapling in rich soil",
     trustPoints: [
-      { value: "Registered NGO", label: "Working with care and accountability", icon: "shield" },
+      {
+        value: "Registered NGO",
+        label: "Working with care and accountability",
+        icon: "shield",
+      },
       { value: "2,400+", label: "Animals rescued and treated", icon: "heart" },
       { value: "18,000+", label: "Trees planted together", icon: "tree" },
     ],
@@ -64,30 +68,35 @@ const homeContent = {
   help: {
     eyebrow: "Be part of the change",
     title: "How You Can Help",
-    subtitle: "A little care goes a long way. Choose the way that feels right for you.",
+    subtitle:
+      "A little care goes a long way. Choose the way that feels right for you.",
     error: "Ways to get involved are temporarily unavailable.",
     cards: [
       {
         title: "Donate",
-        description: "Help provide food, medicine and safe shelter for animals in need.",
+        description:
+          "Help provide food, medicine and safe shelter for animals in need.",
         action: "Give with care",
         icon: "heart",
       },
       {
         title: "Volunteer",
-        description: "Bring your time and energy to a rescue, planting or clean-up day.",
+        description:
+          "Bring your time and energy to a rescue, planting or clean-up day.",
         action: "Join a drive",
         icon: "users",
       },
       {
         title: "Adopt",
-        description: "Make room in your home and heart for a friend who needs both.",
+        description:
+          "Make room in your home and heart for a friend who needs both.",
         action: "Meet our animals",
         icon: "paw",
       },
       {
         title: "Sponsor a Tree",
-        description: "Help plant and nurture trees that will shelter life for years to come.",
+        description:
+          "Help plant and nurture trees that will shelter life for years to come.",
         action: "Plant hope",
         icon: "tree",
       },
@@ -95,7 +104,8 @@ const homeContent = {
   },
   cta: {
     title: "Every Small Act Helps Life Rise.",
-    description: "Your kindness can become a safer home, a greener street and a brighter tomorrow.",
+    description:
+      "Your kindness can become a safer home, a greener street and a brighter tomorrow.",
     donateAction: "Donate Now",
     contactAction: "Get in Touch",
   },
@@ -109,7 +119,8 @@ const homeContent = {
   comingSoon: {
     eyebrow: "A little more time",
     title: "This part of CareRise is growing.",
-    description: "We are preparing this page with the same care we bring to every life. In the meantime, explore our work from the home page.",
+    description:
+      "We are preparing this page with the same care we bring to every life. In the meantime, explore our work from the home page.",
     action: "Back to Home",
   },
   footer: {

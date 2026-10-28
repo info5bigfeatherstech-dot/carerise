@@ -16,7 +16,10 @@ export default function DonateModal() {
   return (
     <Modal open={open} onClose={closeDonateModal} title={donation.title}>
       <p className="text-sm leading-7 text-brand/75">{donation.description}</p>
-      <div className="mt-6 grid grid-cols-3 gap-3" aria-label="Choose a donation amount">
+      <div
+        className="mt-6 grid grid-cols-3 gap-3"
+        aria-label="Choose a donation amount"
+      >
         {[500, 1000, 2500].map((amount) => (
           <button
             type="button"

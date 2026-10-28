@@ -13,13 +13,25 @@ export default function Faq() {
   return (
     <Section id="faq" bg="gray">
       <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-        <SectionHeading eyebrow={data?.heading.eyebrow} title={data?.heading.title ?? " "} subtitle={data?.heading.subtitle} />
-        {isLoading ? <Skeleton className="h-72" rounded="rounded-xl" /> : isError ? (
-          <p role="status" className="text-sm text-brand">{data?.error ?? "Frequently asked questions could not be loaded."}</p>
+        <SectionHeading
+          eyebrow={data?.heading.eyebrow}
+          title={data?.heading.title ?? " "}
+          subtitle={data?.heading.subtitle}
+        />
+        {isLoading ? (
+          <Skeleton className="h-72" rounded="rounded-xl" />
+        ) : isError ? (
+          <p role="status" className="text-sm text-brand">
+            {data?.error ?? "Frequently asked questions could not be loaded."}
+          </p>
         ) : !data?.items?.length ? (
           <p className="text-sm text-brand/70">{data?.empty}</p>
         ) : (
-          <Accordion items={data.items} openId={openFaqId} onToggle={setOpenFaqId} />
+          <Accordion
+            items={data.items}
+            openId={openFaqId}
+            onToggle={setOpenFaqId}
+          />
         )}
       </div>
     </Section>
