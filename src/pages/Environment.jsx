@@ -11,9 +11,16 @@ import Skeleton from "../components/ui/Skeleton";
 /** Environmental programs for planting, clean-ups and local conservation. */
 export default function Environment() {
   const { data: pages, isLoading, isError } = usePagesContent();
-  const { data: programs, isLoading: programsLoading, isError: programsError } = usePrograms();
+  const {
+    data: programs,
+    isLoading: programsLoading,
+    isError: programsError,
+  } = usePrograms();
   const page = pages?.environment;
-  const items = programs?.items.filter((program) => page?.programTitles.includes(program.title)) ?? [];
+  const items =
+    programs?.items.filter((program) =>
+      page?.programTitles.includes(program.title),
+    ) ?? [];
 
   return (
     <>
@@ -21,21 +28,46 @@ export default function Environment() {
       {page ? (
         <>
           <Section bg="gray">
-            <SectionHeading title={page.sectionTitle} subtitle={page.sectionIntro} />
+            <SectionHeading
+              title={page.sectionTitle}
+              subtitle={page.sectionIntro}
+            />
             {programsLoading ? (
-              <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{Array.from({ length: 4 }, (_, i) => <Skeleton key={i} className="h-80" />)}</div>
+              <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {Array.from({ length: 4 }, (_, i) => (
+                  <Skeleton key={i} className="h-80" />
+                ))}
+              </div>
             ) : programsError ? (
-              <p className="mt-7 text-sm text-brand" role="status">{programs?.error ?? "Environmental programs are temporarily unavailable."}</p>
+              <p className="mt-7 text-sm text-brand" role="status">
+                {programs?.error ??
+                  "Environmental programs are temporarily unavailable."}
+              </p>
             ) : !items.length ? (
               <p className="mt-7 text-sm text-brand/70">{programs?.empty}</p>
             ) : (
               <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                {items.map((program) => <Card key={program.title} image={program.image} imageAlt={program.imageAlt} title={program.title} description={program.description} />)}
+                {items.map((program) => (
+                  <Card
+                    key={program.title}
+                    image={program.image}
+                    imageAlt={program.imageAlt}
+                    title={program.title}
+                    description={program.description}
+                  />
+                ))}
               </div>
             )}
           </Section>
           <StepList title={page.stepsTitle} steps={page.steps} />
-          <PageCallout title={page.calloutTitle} description={page.calloutDescription} action={page.primaryAction} to={page.primaryTo} secondaryAction={page.secondaryAction} secondaryTo={page.secondaryTo} />
+          <PageCallout
+            title={page.calloutTitle}
+            description={page.calloutDescription}
+            action={page.primaryAction}
+            to={page.primaryTo}
+            secondaryAction={page.secondaryAction}
+            secondaryTo={page.secondaryTo}
+          />
         </>
       ) : null}
     </>
